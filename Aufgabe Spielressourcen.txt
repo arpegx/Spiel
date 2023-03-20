@@ -1,0 +1,90 @@
+Sie sind Entwickler in einer Softwareschmiede für Echtzeitstrategiespiele. Im aktuellen Projekt entwickeln Sie einen Ausschnitt der
+Gesamtsoftware im Bereich des Back-Ends. Ihr Modul soll eine OOP-Struktur anderen Modulen anbieten welche folgende Anforderungen abdeckt:
+
+Jede Rasse im Gesamtspiel hat ihre spezifische Fahrzeug- und Flugeinheitentypen(Einheiten). Ihr Modul soll die Klassen für diese Einheiten bereit stellen
+mit ihren wichtigsten Eigenschaften und Fähigkeiten. 
+
+Sobald die maximale Anzahl der Trefferpunkte überschritten wurde, soll eine Einheit "zerstört" werden. Dazu hält jede Rasse jeweils
+eine Sammlung mit alle ihren aktuell im Spiel aktiven Einheiten. 
+
+Es gibt die Rassen Protoss, Zerg und Terraner.  
+
+
+Alle Rassen haben natürlich eine Bezeichnung und eine bestimmte Menge an Ressourcen. Ressourcen sind Gas und Mineralien. Alle Einheiten benötigen für ihre
+Produktion genauso viele Minearalien, wie die Anzahl der Lebenspunkte der Einheit und genauso viel Gas, wie die Anzahl der Schildpunkte der zu produzierenden Einheit.
+
+Jede Rasse hat ihre spezielle Flotte an Einheiten. Alle Einheiten haben einen Schild(eine bestimmte Anzahl an "freien" Trefferpunkten) -
+solange das Schild > 0 ist, werden die Treffer nicht als volle Treffer gezählt, sondern lediglich vom Schild abgezogen. Erst wenn das Schild 0 
+Trefferpunkte hat, werden die Trefferpunkte von der Lebensenergie der Einheiten selbst abgezogen. Wenn die Einheit keine Lebensenergie mehr hat, gilt die
+Einheit als zerstört(Die Einheit wird aus dem Spiel genommen).
+
+
+Für das Entfernen von zerstörten Einheiten aus dem Einheitenverbund bietet eine Feature-Klasse eine Methode an, welche die vorhandenen Einheiten jeder Rasse
+überprüft und zerstörte Einheiten entfernt. Die Rassen können also diesen Dienst an die Feature-Klasse delegieren. Von der Feature-Klasse soll es nur ein
+einziges Objekt geben können.
+
+Wenn eine Rasse eine Einheit verliert und für die Neuproduktion dieser Einheit genügend Ressourcen vorhanden sind, delegiert die Rasse die Produktion der zu
+ersetzenden Einheit an eine Producer-Klasse. 
+
+
+Alle Rassen bekommen von einer Ressource-Klasse mitgeteilt, wieviele Mineralien/wieviel Gas aktuell verfügbar sind/ist, wenn neue verfügbar sind. 
+Die Ressource-Klasse bietet den Rassen-Objekten an, sich bei ihr zu registrieren um Änderungen über die verfügbaren Ressourcen mitgeteilt zu bekommen -> Observer. (Das Steuern der vorhandenen Ressourcenmengen ist nicht Teil Ihres
+Moduls - darum kümmert sich ein anderes Team).
+
+
+
+
+Überblick über die Einheiten:
+
+
+Protoss:
+--------
+
+Corsair -> Schildpunkte: 20, Lebenspunkte: 150
+Carrier -> Schildpunkte: 250, Lebenspunkte: 1500
+Probe -> Schildpunkte: 5, Lebenspunkte: 50
+Scout -> Schildpunkte: 200, Lebenspunkte: 800
+Shuttle -> Schildpunkte: 60, Lebenspunkte: 400
+
+
+Zerg:
+--------
+
+Mutalisk -> Schildpunkte: 60, Lebenspunkte: 800
+Queen -> Schildpunkte: 250, Lebenspunkte: 1500
+Guardian -> Schildpunkte: 20, Lebenspunkte: 2000
+Lurker -> Schildpunkte: 200, Lebenspunkte: 500
+Overloard -> Schildpunkte: 60, Lebenspunkte: 400
+
+
+Terraner:
+--------
+
+Battlecruiser -> Schildpunkte: 600, Lebenspunkte: 2000
+Goliath -> Schildpunkte: 250, Lebenspunkte: 1200
+Valkyrie -> Schildpunkte: 40, Lebenspunkte: 800
+Tank -> Schildpunkte: 300, Lebenspunkte: 800
+Starcruiser -> Schildpunkte: 250, Lebenspunkte: 2000
+
+Alle Rassen haben unter anderem folgende Methoden:
+
++ addEinheit
+
+
+Alle Einheiten haben unter anderem folgende Methoden:
+
++ hit(int points)  -> zieht dem Schild/der Einheit Punkte ab
++ loadShield(int points) -> lade das Schild auf(maximal bis anz Schildpunkte)
+
+
+Die Rassen und Einheiten haben NUR die hier beschriebenen Eigenschaften
+und Fähigkeiten/Methoden - um alle anderen Aspekte werden sich andere Entwickler Ihres Teams kümmern. Hier soll auch KEINE aktive Spiel-Steuer-Logik implementiert werden!
+Sie sollen anderen Team-Mitgliedern lediglich die dafür benötigten Klassen zur Verfügung stellen.
+
+Entwerfen Sie ein Klassenmodell, welches die beschriebenen Anforderungen abdeckt. Sorgen Sie für eine möglichst flexible und erweiterbare/bequem von "aussen" nutzbare
+Klassenstruktur. Setzen Sie dafür entsprechende OOP-Konzepte/Entwurfsmuster ein.
+
+Setzen Sie anschliessend das Modell in Javacode um.
+
+
+
