@@ -9,6 +9,8 @@ final class FeatureTest extends TestCase
      */
     public function testgetInstance(): void {
         $feature_1 = Feature::getInstance();
+        $feature_2 = Feature::getInstance();
         $this->assertInstanceOf(Feature::class,$feature_1);
+        $this->assertEquals($feature_1, $feature_2);
     }
 }
