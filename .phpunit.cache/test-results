@@ -1,1 +1,1 @@
-{"version":1,"defects":{"FeatureTest::testgetInstance":5,"EinheitTest::test__construct":3},"times":{"FeatureTest::testgetInstance":0,"EinheitTest::test__construct":0.001}}
+{"version":1,"defects":{"FeatureTest::testgetInstance":5,"EinheitTest::test__construct":3},"times":{"FeatureTest::testgetInstance":0,"EinheitTest::test__construct":0.004}}

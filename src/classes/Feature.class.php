@@ -13,8 +13,6 @@ class Feature {
 
     //* ctor
     private function __construct(){}
-
-    //* Getter and Setter
     public static function getInstance(): Feature 
     {
         // Check if Feature is already initialized
