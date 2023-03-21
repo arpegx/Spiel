@@ -47,7 +47,7 @@ abstract class Einheit
 
 class Corsair extends Einheit
 {
-    //*ctor
+    //* ctor
     public function __construct(){
         $this->health = 150;
         $this->setShield(20);
