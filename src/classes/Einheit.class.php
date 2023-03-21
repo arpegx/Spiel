@@ -16,8 +16,7 @@ abstract class Einheit
     //* Getter and Setter
     public function getShield(): int { return $this->shield; }
     public function getHealth(): int { return $this->health; }
-    public function setShield(int $shield): void { $this->shield = $shield; }
-    
+    public function setShield(int $shield): self { $this->shield = $shield; return $this; }
 }
 
 class Corsair extends Einheit
